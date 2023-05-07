@@ -26,7 +26,7 @@ variables %>% filter(variable == "p16")
 variables %>% filter(variable == "p16a")
 
 
-indigena_reg <- tbl(censo_conectar(), "zonas") %>% 
+indigena_total <- tbl(censo_conectar(), "zonas") %>% 
   mutate(
     region = substr(as.character(geocodigo), 1, 2),
     comuna = substr(as.character(geocodigo), 1, 5)
@@ -38,8 +38,7 @@ indigena_reg <- tbl(censo_conectar(), "zonas") %>%
   inner_join(select(tbl(censo_conectar(), "personas"), hogar_ref_id, indigena = p16), by = "hogar_ref_id") %>%
   collect()
 
-
-indigena_reg_t <- indigena_reg %>% group_by(region) %>% frq (indigena) 
+indigena_total %>% frq (indigena) 
 
 indigena_reg_t <- as.data.frame(indigena_reg_t) %>% drop_na()
 
