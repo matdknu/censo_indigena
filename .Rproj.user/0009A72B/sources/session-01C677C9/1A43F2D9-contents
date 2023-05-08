@@ -1,0 +1,491 @@
+---
+title: "Población Indígena en Chile"
+subtitle: "Datos Censales 2017"
+author: "Jaime Coquelet & Matías Deneken"
+date: "`Documentado elaborado por el Centro de Estudios Interculturales e Indígenas"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introducción
+
+El presente documento busca describir acotadamente la distribución de la población indígena en Chile a partir del Censo del 2017. A propósito de los [Diálogos Ciudadanos](www.), que se constituyen como un espacio de diálogo y deliberación sobre el anteproyecto elaborado por la Comisión Experta, se crea este repositorio para monitorear la participación de la población autoidentificada con los PP.OO.
+
+El CENSO, elemento sustancial para la elaboración de políticas publicas, posee al interior de su cuestionario la pregunta sobre la *autoidentificación indígena*. Esta se subdivide en dos:
+
+-   p.16 ¿ Se Considera Perteneciente A Pueblo Indígena u Originario? (Sí/No)
+-   p.16a ¿ Cuál Pueblo Indígena u Originario?
+    1.  Mapuche
+    2.  Aymara
+    3.  Rapa Nui
+    4.  Lican Antai
+    5.  Quechua
+    6.  Colla
+    7.  Diaguita
+    8.  Kawésqar
+    9.  Yagán o Yámana
+    10. Otro
+
+El procesamiento de los datos se realizó a partir del paquete `censo2017`y `chilemapas`.
+
+## Datos a nivel nacional
+
+Según los datos censales 2.185.792 personas se autoidentifican como indígenas.
+
+|             | N          | Porcentaje |
+|-------------|------------|------------|
+| Indígena    | 2.185.792  | 12.44%     |
+| No Indígena | 14.890.284 | 84.73%     |
+| No responde | 497.927    | 02.83%     |
+|             | 17.574.003 | 100        |
+
+: Cantidad de personas Indígenasy No Índigenas en Chile
+
+La distribución espacial de la población indígena es:
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(0)total.png")
+```
+
+Ahora, al considerar la cantidad de personas autoidentificadas por pueblo originario queda la composición de la siguiente tabla en que se considera tanto a la alternativa que incluye "otro" y otra que solo contempla los PP.OO de las opciones predispuestas del diccionario.
+
+|                    | N             | Porcentaje | **Porcentaje sin otro** |
+|--------------------|---------------|------------|-------------------------|
+| Mapuche            | 1.691.629     | 77,4 %     | **83,1%**               |
+| Aymara             | 156.754       | 7,2%       | **7,7%**                |
+| Rapa Nui           | 9.399         | 0,4%       | **0,5%**                |
+| Lican Antai        | 30.369        | 1,4%       | **1,5%**                |
+| Quechua            | 33.868        | 1,5%       | **1,7%**                |
+| Colla              | 20.744        | 0,9%       | **1,0%**                |
+| Diaguita           | 88.474        | 4,0%       | **4,3%**                |
+| Kawésqar           | 3.448         | 0,2%       | **0,2%**                |
+| Yagán              | 1600          | 0,1%       | **0,1%**                |
+| Otro               | 149.507       | 6,8%       |                         |
+| Total              | 2.185.792     |            |                         |
+| **Total sin otro** | **2.036.285** |            |                         |
+
+: Autoidentificación por PP.OO
+
+Dado que los datos de la respuesta otro no se encuentran del todo codificados, se sugiere utilizar el "**Total sin otro**"
+
+En base a lo anterior, si realizamos una proyección para los diálogos ciudadanos con una participación de 7.500, 10.000, 12.500 y 15.000 personas esta debería ser la proporción estimada:
+
+## Datos a nivel regional
+
+Los datos a nivel regional tiene una distribución no homogénea. Cada una de las regiones tiene una predominancia sobre algún pueblo originario en específico, además de poseer diferentes densidades en sus respectivas comunas.
+
+## Región de Arica y Parinacota
+
+En la Región de Arica el 34,9% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **78.881** | **34,9%**  |
+| No Indígena  | 142.038    | 62,8%      |
+| NA           | 5.147      | 2,3%       |
+| Total        | 226.068    | 100%       |
+
+: Población indígena en la Región de Arica
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(15)arica.png")
+```
+
+El Pueblo Aymara engloba el 75,3% de la población indígena de la región. Lo siguen Mapuche, Quechua y Diaguita
+
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Aymara   | 59.432 | 75,3%      |
+| Mapuche  | 7.814  | 9,9%       |
+| Yagán    | 2.659  | 3,4%       |
+| Diaguita | 1.898  | 2,4%       |
+
+## Región de Tarapacá
+
+En la Región de Tarapacá el 24.2% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **80.065** | **24,2%**  |
+| No Indígena  | 242.031    | 73,2%      |
+| NA           | 8.462      | 2,6%       |
+| Total        | 330.558    | 100%       |
+
+: Población indígena en la Región de Tarapacá
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(1)tarapacá.png")
+```
+
+Mientras tanto, los cuatro pueblos que mayor presencia tienen son los siguientes:
+
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Aymara   | 48.694 | 61,2%      |
+| Mapuche  | 12.367 | 15,4%      |
+| Quechua  | 7.580  | 9,5%       |
+| Diaguita | 6.313  | 7,9%       |
+
+: Pueblos Originarios con mayor presencia en en la Región de Tarapacá
+
+## Región de Antogasta
+
+En la Región de Antogasta el 13.6% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **82.412** | **13,6%**  |
+| No Indígena  | 503.324    | 82,9%      |
+| NA           | 21.780     | 3,6%       |
+| Total        | 607.534    | 100%       |
+
+: Población indígena en la Región de Tarapacá
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(2)antofagasta.png")
+```
+
+Mientras tanto, los cuatro pueblos que mayor presencia tienen son los siguientes:
+
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Diaguita | 25.262 | 30,7%      |
+| Colla    | 17.430 | 21,1%      |
+| Mapuche  | 12.861 | 15,6%      |
+| Aymara   | 10.446 | 12,7%      |
+
+## Región de Atacama
+
+En la Región de Antogasta el 19.4% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **55.412** | **19,4%**  |
+| No Indígena  | 225.511    | 78,8%      |
+| NA           | 5.244      | 1,8%       |
+| Total        | 286.534    | 100%       |
+
+: Población indígena en la Región de Tarapacá
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(3)atacama.png")
+```
+
+Mientras tanto, los cuatro pueblos que mayor presencia tienen son los siguientes:
+
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Diaguita | 26.381 | 47,6%      |
+| Colla    | 14.054 | 25,4%      |
+| Mapuche  | 9.020  | 16,3%      |
+| Aymara   | 2.716  | 4,9%       |
+
+## Región de Coquimbo
+
+En la Región de Coquimbo el 8.6% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **65.956** | **8,6%**   |
+| No Indígena  | 665.757    | 87,9%      |
+| NA           | 26.873     | 3,5%       |
+| Total        | 757.586    | 100%       |
+
+: Población indígena en la Región de Coquimbo
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(4)coquimbo.png")
+```
+
+Mientras tanto, los cuatro pueblos que mayor presencia tienen son los siguientes:
+
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Diaguita | 26.470 | 40,8%      |
+| Mapuche  | 24.750 | 38,1%      |
+| Aymara   | 5.530  | 8,5%       |
+| Colla    | 1.939  | 3,0%       |
+
+## Región de Valparaíso
+
+En la Región de Valparaíso el 6.6% de la población se autoidentifica como indígena.
+
+|              | N           | Porcentaje |
+|--------------|-------------|------------|
+| **Indígena** | **119.751** | **6,6%**   |
+| No Indígena  | 1.635.62    | 90,1%      |
+| NA           | 60.350      | 3,3%       |
+| Total        | 1.815.902   | 100%       |
+
+: Población indígena en la Región de Valparaíso
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(5)valparaiso.png")
+```
+
+Mientras tanto, los cuatro pueblos que mayor presencia tienen son los La
+
+Los grupos más predomianntes son los siguientes:
+
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Mapuche  | 91.744 | 76,6%      |
+| Diaguita | 6.928  | 5,8%       |
+| Aymara   | 5.581  | 4,9%       |
+| Rapa Nui | 4.566  | 3,8%       |
+
+## Región de O'Higgins
+
+En la Región de Valparaíso el 6.6% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **57.820** | **6,3%**   |
+| No Indígena  | 830.481    | 90,8%      |
+| NA           | 26.749     | 2,9%       |
+| Total        | 914.555    | 100%       |
+
+: Población indígena en la Región de Valparaíso
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(6)ohiggins.png")
+```
+
+El grupo mapuche engloba el 90% de la población indígena de la región
+
+|         | N      | Porcentaje |
+|---------|--------|------------|
+| Mapuche | 51.244 | 89,5%      |
+
+## Región de Maule
+
+En la Región del Maule el 6.6% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **49.013** | **4,7%**   |
+| No Indígena  | 959.245    | 91,8%      |
+| NA           | 36.692     | 3,5%       |
+| Total        | 1.044.950  | 100%       |
+
+: Población indígena en la Región de Maule
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(7)maule.png")
+```
+
+El pueblo mapuche engloba el 90% de la población indígena de la región
+
+|         | N      | Porcentaje |
+|---------|--------|------------|
+| Mapuche | 44.140 | 90,1%      |
+| Aymara  | 689    | 1,4%       |
+
+## Región del Bío Bío
+
+En la Región del Maule el 6.6% de la población se autoidentifica como indígena.
+
+|              | N           | Porcentaje |
+|--------------|-------------|------------|
+| **Indígena** | **189.632** | **8,3%**   |
+| No Indígena  | 1.796.451   | 88,2%      |
+| NA           | 51.331      | 2,5%       |
+| Total        | 1.044.950   | 100%       |
+
+: Población indígena en la Región del Bío Bío
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(8)biobio.png")
+```
+
+El pueblomapuche engloba el 91,0% de la población indígena de la región
+
+|         | N       | Porcentaje |
+|---------|---------|------------|
+| Mapuche | 172.652 | 91,0%      |
+| Aymara  | 1.655   | 0,9%       |
+
+## Región de la Araucanía
+
+En la Región del la Araucanía el 33.6% de la población se autoidentifica como indígena.
+
+|              | N           | Porcentaje |
+|--------------|-------------|------------|
+| **Indígena** | **321.328** | **33,6%**  |
+| No Indígena  | 615.847     | 64,3%      |
+| NA           | 20.049      | 2,1%       |
+| Total        | 957.224     | 100%       |
+
+: Población indígena en la Región de la Araucanía
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(9)araucania.png")
+```
+
+El Pueblo Mapuche engloba el 97,5% de la población indígena de la región
+
+|         | N       | Porcentaje |
+|---------|---------|------------|
+| Mapuche | 313.188 | 97,5%      |
+
+## Región de Los Ríos
+
+En la Región de Los Ríos el 25% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **96.311** | **25%**    |
+| No Indígena  | 279.675    | 72,7%      |
+| NA           | 8851       | 2,3%       |
+| Total        | 957.224    | 100%       |
+
+: Población indígena en la Región de Los Rís
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(14)losrios.png")
+```
+
+El Pueblo Mapuche engloba el 95,5% de la población indígena de la región
+
+|         | N      | Porcentaje |
+|---------|--------|------------|
+| Mapuche | 91.951 | 95,5%      |
+
+## Región de Los Lagos
+
+En la Región de Los Lagos el 27% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **29.075** | **28,1%**  |
+| No Indígena  | 72.273     | 70,1%      |
+| NA           | 1.810      | 1,8%       |
+| Total        | 103.158    | 100%       |
+
+: Población indígena en la Región de Los Lagos
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(10)lagos.png")
+```
+
+El Pueblo Mapuche engloba el 81,7% de la población indígena de la región
+
+|          | N       | Porcentaje |
+|----------|---------|------------|
+| Mapuche  | 186.854 | 81,7%      |
+| Aymara   | 830     | 0,4%       |
+| Diaguita | 830     | 0,4%       |
+
+## Región de Aysén
+
+En la Región de Aysén el 28% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **29.075** | **28,2%**  |
+| No Indígena  | 72.273     | 70,1%      |
+| NA           | 1.810      | 1,8%       |
+| Total        | 103.158    | 100%       |
+
+: Población indígena en la Región de Aysén
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(11)aysen.png")
+```
+
+El Pueblo Mapuche engloba el 81,7% de la población indígena de la región. Lo siguen los Kawésqar y Yaganes
+
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Mapuche  | 26.570 | 91,4%      |
+| Aymara   | 162    | 0,6%       |
+| Kawésqar | 117    | 0,4%       |
+
+: Población indígena en la Región de Aysén
+
+## Región de Magallanes
+
+En la Región de Magallanes el 22,7% de la población se autoidentifica como indígena.
+
+|              | N          | Porcentaje |
+|--------------|------------|------------|
+| **Indígena** | **37.791** | **22,7%**  |
+| No Indígena  | 125.946    | 75,6%      |
+| NA           | 2.796      | 1,7%       |
+| Total        | 166.533    | 100%       |
+
+: Población indígena en la Región de Magallanes
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(12)magallanes.png")
+```
+
+El Pueblo Mapuche engloba el 80,6% de la población indígena de la región. Lo siguen los Kawésqar y Yaganes
+
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Mapuche  | 30.463 | 80,6%      |
+| Kawésqar | 955    | 2,5%       |
+| Yagán    | 306    | 0,8%       |
+
+: Población indígena en la Región de Magallanes
+
+## Región Metropolitana
+
+En la Región Metropolitana el 22,7% de la población se autoidentifica como indígena.
+
+|              | N           | Porcentaje |
+|--------------|-------------|------------|
+| **Indígena** | **695.116** | **9,8%**   |
+| No Indígena  | 6.214.240   | 87,4%      |
+| NA           | 203.452     | 2,9%       |
+| Total        | 7.112.208   | 100%       |
+
+: Población indígena en la Región Metropolitana
+
+La distribución espacial de personas que se autoidentifican como indígenas es la siguiente
+
+```{r echo=FALSE, out.width = '100%'}
+knitr::include_graphics("img/poblacionindigena_(13)metropolitana.png")
+```
+
+El Pueblo Mapuche engloba el 80,6% de la población indígena de la región. Lo siguen los Kawésqar y Yaganes
+
+|          | N       | Porcentaje |
+|----------|---------|------------|
+| Mapuche  | 611.412 | 88,0%      |
+| Kawésqar | 15.988  | 2,3%       |
+| Diaguita | 9.381   | 1,3%       |
+
+## Comentarios Finales

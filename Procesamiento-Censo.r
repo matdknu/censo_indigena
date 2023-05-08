@@ -38,9 +38,9 @@ indigena_total <- tbl(censo_conectar(), "zonas") %>%
   inner_join(select(tbl(censo_conectar(), "personas"), hogar_ref_id, indigena = p16), by = "hogar_ref_id") %>%
   collect()
 
-indigena_total <- as.data.frame(indigena_total) %>% drop_na()
+#indigena_total <- as.data.frame(indigena_total) %>% drop_na()
 
-indigena_total %>% group_by(region) %>% frq (indigena)
+i#ndigena_total %>% group_by(region) %>% frq (indigena)
 
 #indigenas_bio %>% frq (indigena)
 
@@ -53,7 +53,9 @@ indigena_total <- indigena_total %>%
 
 
 mapa <- mapa_comunas %>% 
-  #filter(codigo_region == "08") %>% 
+  filter(codigo_comuna != "05201") %>% 
+  filter(codigo_comuna != "05103") %>% 
+  filter(codigo_comuna != "05104") %>% 
   left_join(indigena_total, by = c("codigo_comuna" = "comuna"))
 
 
@@ -73,12 +75,12 @@ g <- ggplot() +
   #geom_sf_label(aes(label = comuna, geometry = geometry)) +
   scale_fill_gradientn(colours = rev(colors), name = "Porcentaje") +
   labs(title = "Porcentaje de habitantes que se consideran como indígenas",
-       subtitle = "En el total de País") +
+       subtitle = "Chile continental") +
   theme_minimal(base_size = 13)
 
 g
 
-ggsave("img/poblacionindigena_(0)total.png", width = 29, height = 15, units = "cm")
+ggsave("img/poblacionindigena_(0)total.png", width = 35, height = 20, units = "cm")
 
 ## p.16a
 

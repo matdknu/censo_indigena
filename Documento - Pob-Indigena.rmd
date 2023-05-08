@@ -42,29 +42,51 @@ Según los datos censales 2.185.792 personas se autoidentifican como indígenas.
 | No responde | 497.927    | 02.83%     |
 |             | 17.574.003 | 100        |
 
+: Cantidad de personas Indígenasy No Índigenas en Chile
+
+La distribución espacial de la población indígena es:
+
 ```{r echo=FALSE, out.width = '100%'}
 knitr::include_graphics("img/poblacionindigena_(0)total.png")
 ```
 
+Ahora, al considerar la cantidad de personas autoidentificadas por pueblo originario queda la composición de la siguiente tabla en que se considera tanto a la alternativa que incluye "otro" y otra que solo contempla los PP.OO de las opciones predispuestas del diccionario.
 
-Al considerar la cantidad de autoidentificación por Pueblos Originarios a nivel nacional,
+|                    | N             | Porcentaje | **Porcentaje sin otro** |
+|--------------------|---------------|------------|-------------------------|
+| Mapuche            | 1.691.629     | 77,4 %     | **83,1%**               |
+| Aymara             | 156.754       | 7,2%       | **7,7%**                |
+| Rapa Nui           | 9.399         | 0,4%       | **0,5%**                |
+| Lican Antai        | 30.369        | 1,4%       | **1,5%**                |
+| Quechua            | 33.868        | 1,5%       | **1,7%**                |
+| Colla              | 20.744        | 0,9%       | **1,0%**                |
+| Diaguita           | 88.474        | 4,0%       | **4,3%**                |
+| Kawésqar           | 3.448         | 0,2%       | **0,2%**                |
+| Yagán              | 1600          | 0,1%       | **0,1%**                |
+| Otro               | 149.507       | 6,8%       |                         |
+| Total              | 2.185.792     |            |                         |
+| **Total sin otro** | **2.036.285** |            |                         |
+
+: Autoidentificación por PP.OO
+
+Dado que los datos de la respuesta otro no se encuentran del todo codificados, se sugiere utilizar el "**Total sin otro**"
+
+En base a lo anterior, si realizamos una proyección para los diálogos ciudadanos con una participación de 7.500, 10.000, 12.500 y 15.000 personas esta debería ser la proporción estimada:
 
 ## Datos a nivel regional
 
 Los datos a nivel regional tiene una distribución no homogénea. Cada una de las regiones tiene una predominancia sobre algún pueblo originario en específico, además de poseer diferentes densidades en sus respectivas comunas.
 
-
 ## Región de Arica y Parinacota
-
 
 En la Región de Arica el 34,9% de la población se autoidentifica como indígena.
 
-|              | N           | Porcentaje |
-|--------------|-------------|------------|
+|              | N          | Porcentaje |
+|--------------|------------|------------|
 | **Indígena** | **78.881** | **34,9%**  |
-| No Indígena  | 142.038     | 62,8%      |
+| No Indígena  | 142.038    | 62,8%      |
 | NA           | 5.147      | 2,3%       |
-| Total        | 226.068     | 100%       |
+| Total        | 226.068    | 100%       |
 
 : Población indígena en la Región de Arica
 
@@ -76,14 +98,12 @@ knitr::include_graphics("img/poblacionindigena_(15)arica.png")
 
 El Pueblo Aymara engloba el 75,3% de la población indígena de la región. Lo siguen Mapuche, Quechua y Diaguita
 
-|          | N       | Porcentaje |
-|----------|---------|------------|
-| Aymara  |59.432   | 75,3%      |
-| Mapuche | 7.814    | 9,9%       |
-| Yagán  | 2.659     | 3,4%       |
-| Diaguita | 1.898     | 2,4%       |
-
-
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Aymara   | 59.432 | 75,3%      |
+| Mapuche  | 7.814  | 9,9%       |
+| Yagán    | 2.659  | 3,4%       |
+| Diaguita | 1.898  | 2,4%       |
 
 ## Región de Tarapacá
 
@@ -360,12 +380,12 @@ El Pueblo Mapuche engloba el 95,5% de la población indígena de la región
 
 En la Región de Los Lagos el 27% de la población se autoidentifica como indígena.
 
-|              | N           | Porcentaje |
-|--------------|-------------|------------|
+|              | N          | Porcentaje |
+|--------------|------------|------------|
 | **Indígena** | **29.075** | **28,1%**  |
-| No Indígena  | 72.273    | 70,1%      |
-| NA           |  1.810     | 1,8%       |
-| Total        | 103.158     | 100%       |
+| No Indígena  | 72.273     | 70,1%      |
+| NA           | 1.810      | 1,8%       |
+| Total        | 103.158    | 100%       |
 
 : Población indígena en la Región de Los Lagos
 
@@ -383,17 +403,16 @@ El Pueblo Mapuche engloba el 81,7% de la población indígena de la región
 | Aymara   | 830     | 0,4%       |
 | Diaguita | 830     | 0,4%       |
 
-## Región de Aysén 
-
+## Región de Aysén
 
 En la Región de Aysén el 28% de la población se autoidentifica como indígena.
 
-|              | N           | Porcentaje |
-|--------------|-------------|------------|
+|              | N          | Porcentaje |
+|--------------|------------|------------|
 | **Indígena** | **29.075** | **28,2%**  |
 | No Indígena  | 72.273     | 70,1%      |
 | NA           | 1.810      | 1,8%       |
-| Total        | 103.158     | 100%       |
+| Total        | 103.158    | 100%       |
 
 : Población indígena en la Región de Aysén
 
@@ -405,25 +424,24 @@ knitr::include_graphics("img/poblacionindigena_(11)aysen.png")
 
 El Pueblo Mapuche engloba el 81,7% de la población indígena de la región. Lo siguen los Kawésqar y Yaganes
 
-|          | N       | Porcentaje |
-|----------|---------|------------|
-| Mapuche  |26.570   | 91,4%      |
-| Aymara   | 162     | 0,6%       |
-| Kawésqar  | 117     | 0,4%       |
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Mapuche  | 26.570 | 91,4%      |
+| Aymara   | 162    | 0,6%       |
+| Kawésqar | 117    | 0,4%       |
 
 : Población indígena en la Región de Aysén
 
 ## Región de Magallanes
 
-
 En la Región de Magallanes el 22,7% de la población se autoidentifica como indígena.
 
-|              | N           | Porcentaje |
-|--------------|-------------|------------|
+|              | N          | Porcentaje |
+|--------------|------------|------------|
 | **Indígena** | **37.791** | **22,7%**  |
-| No Indígena  | 125.946     | 75,6%      |
+| No Indígena  | 125.946    | 75,6%      |
 | NA           | 2.796      | 1,7%       |
-| Total        | 166.533     | 100%       |
+| Total        | 166.533    | 100%       |
 
 : Población indígena en la Región de Magallanes
 
@@ -435,26 +453,24 @@ knitr::include_graphics("img/poblacionindigena_(12)magallanes.png")
 
 El Pueblo Mapuche engloba el 80,6% de la población indígena de la región. Lo siguen los Kawésqar y Yaganes
 
-|          | N       | Porcentaje |
-|----------|---------|------------|
-| Mapuche  |30.463   | 80,6%      |
-| Kawésqar |  955    | 2,5%       |
-| Yagán  | 306     | 0,8%       |
+|          | N      | Porcentaje |
+|----------|--------|------------|
+| Mapuche  | 30.463 | 80,6%      |
+| Kawésqar | 955    | 2,5%       |
+| Yagán    | 306    | 0,8%       |
 
 : Población indígena en la Región de Magallanes
 
-
 ## Región Metropolitana
-
 
 En la Región Metropolitana el 22,7% de la población se autoidentifica como indígena.
 
 |              | N           | Porcentaje |
 |--------------|-------------|------------|
-| **Indígena** | **695.116** | **9,8%**  |
-| No Indígena  | 6.214.240     | 87,4%      |
-| NA           | 203.452      | 2,9%       |
-| Total        | 7.112.208     | 100%       |
+| **Indígena** | **695.116** | **9,8%**   |
+| No Indígena  | 6.214.240   | 87,4%      |
+| NA           | 203.452     | 2,9%       |
+| Total        | 7.112.208   | 100%       |
 
 : Población indígena en la Región Metropolitana
 
@@ -468,10 +484,8 @@ El Pueblo Mapuche engloba el 80,6% de la población indígena de la región. Lo 
 
 |          | N       | Porcentaje |
 |----------|---------|------------|
-| Mapuche  |611.412   | 88,0%      |
-| Kawésqar | 15.988    | 2,3%       |
-| Diaguita  | 9.381     | 1,3%       |
-
-
+| Mapuche  | 611.412 | 88,0%      |
+| Kawésqar | 15.988  | 2,3%       |
+| Diaguita | 9.381   | 1,3%       |
 
 ## Comentarios Finales
