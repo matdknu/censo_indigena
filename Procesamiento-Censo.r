@@ -13,7 +13,7 @@ options(scipen=999)
 
 # cargar bbdd
 
-censo_descargar()
+#censo_descargar()
 
 # con la bbdd instalada
 
@@ -38,45 +38,32 @@ indigena_total <- tbl(censo_conectar(), "zonas") %>%
   inner_join(select(tbl(censo_conectar(), "personas"), hogar_ref_id, indigena = p16), by = "hogar_ref_id") %>%
   collect()
 
-indigena_total %>% frq (indigena) 
+indigena_total <- as.data.frame(indigena_total) %>% drop_na()
 
-indigena_reg_t <- as.data.frame(indigena_reg_t) %>% drop_na()
-
-indigenas_bio <- tbl(censo_conectar(), "zonas") %>% 
-  mutate(
-    region = substr(as.character(geocodigo), 1, 2),
-    comuna = substr(as.character(geocodigo), 1, 5)
-  ) %>% 
-  filter(region == "08") %>% 
-  select(comuna, geocodigo, zonaloc_ref_id, region) %>%
-  inner_join(select(tbl(censo_conectar(), "viviendas"), zonaloc_ref_id, vivienda_ref_id), by = "zonaloc_ref_id") %>%
-  inner_join(select(tbl(censo_conectar(), "hogares"), vivienda_ref_id, hogar_ref_id), by = "vivienda_ref_id") %>%
-  inner_join(select(tbl(censo_conectar(), "personas"), hogar_ref_id, indigena = p16a), by = "hogar_ref_id") %>%
-  collect()
-
+indigena_total %>% group_by(region) %>% frq (indigena)
 
 #indigenas_bio %>% frq (indigena)
 
 
-indigenas_bio <- indigena_reg %>% 
+indigena_total <- indigena_total %>% 
   group_by(comuna, indigena) %>%
   summarise(cuenta = n()) %>%
   group_by(comuna) %>%
   mutate(proporcion = cuenta / sum(cuenta))
 
 
-mapa_biobio <- mapa_comunas %>% 
-  filter(codigo_region == "08") %>% 
-  left_join(indigenas_bio, by = c("codigo_comuna" = "comuna"))
+mapa <- mapa_comunas %>% 
+  #filter(codigo_region == "08") %>% 
+  left_join(indigena_total, by = c("codigo_comuna" = "comuna"))
 
 
 colors <- c("#DCA761","#C6C16D","#8B9C94","#628CA5","#b8c5cf")
 
 g <- ggplot() +
-  geom_sf(data = mapa_biobio %>% 
+  geom_sf(data = mapa %>% 
             select(codigo_comuna, geometry) %>% 
             left_join(
-              mapa_biobio %>% 
+              mapa %>% 
                 filter(indigena == 1) %>% 
                 select(codigo_comuna, indigena, proporcion),
               by = "codigo_comuna"
@@ -85,7 +72,28 @@ g <- ggplot() +
           size = 0.1) +
   #geom_sf_label(aes(label = comuna, geometry = geometry)) +
   scale_fill_gradientn(colours = rev(colors), name = "Porcentaje") +
-  labs(title = "Porcentaje de habitantes que se consideran como indígenas la Region del Bio Bio") +
+  labs(title = "Porcentaje de habitantes que se consideran como indígenas",
+       subtitle = "En el total de País") +
   theme_minimal(base_size = 13)
 
 g
+
+ggsave("img/poblacionindigena_(0)total.png", width = 29, height = 15, units = "cm")
+
+## p.16a
+
+indigena_t <- tbl(censo_conectar(), "zonas") %>% 
+  mutate(
+    region = substr(as.character(geocodigo), 1, 2),
+    comuna = substr(as.character(geocodigo), 1, 5)
+  ) %>% 
+  #filter(region == "10") %>% 
+  select(comuna, geocodigo, zonaloc_ref_id, region) %>%
+  inner_join(select(tbl(censo_conectar(), "viviendas"), zonaloc_ref_id, vivienda_ref_id), by = "zonaloc_ref_id") %>%
+  inner_join(select(tbl(censo_conectar(), "hogares"), vivienda_ref_id, hogar_ref_id), by = "vivienda_ref_id") %>%
+  inner_join(select(tbl(censo_conectar(), "personas"), hogar_ref_id, indigena = p16a), by = "hogar_ref_id") %>%
+  collect()
+
+
+indigena_t %>% frq (indigena)
+indigena_t %>% group_by (region) %>% frq (indigena)
