@@ -1,4 +1,4 @@
-##############--------------Procesamiento Region 10--------------###############
+##############--------------Procesamiento Region 11--------------###############
 
 # eliminar notación científica
 
@@ -63,12 +63,12 @@ g <- ggplot() +
   #geom_sf_label(aes(label = comuna, geometry = geometry)) +
   scale_fill_gradientn(colours = rev(colors), name = "Porcentaje") +
   labs(title = "(%) Habitantes autoidentificados como indígenas",
-       subtitle = "Región de los Ríos") +
+       subtitle = "Región de Los Lagos") +
   theme_minimal(base_size = 11)
 
 g
 
-ggsave("img/poblacionindigena_(9)rios.png", width = 29, height = 15, units = "cm")
+ggsave("img/poblacionindigena_(10)lagos.png", width = 29, height = 15, units = "cm")
 
 #---- p16.a
 

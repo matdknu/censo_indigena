@@ -63,7 +63,7 @@ g <- ggplot() +
   #geom_sf_label(aes(label = comuna, geometry = geometry)) +
   scale_fill_gradientn(colours = rev(colors), name = "Porcentaje") +
   labs(title = "(%) Habitantes autoidentificados como indígenas",
-       subtitle = "Región de Magallanes") +
+       subtitle = "Región de Los Ríos") +
   theme_minimal(base_size = 11)
 
 g

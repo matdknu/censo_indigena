@@ -86,3 +86,4 @@ indigena_reg6 <- tbl(censo_conectar(), "zonas") %>%
 
 
 indigena_reg6 %>% frq (indigena)
+
