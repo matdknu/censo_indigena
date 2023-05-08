@@ -80,7 +80,7 @@ g <- ggplot() +
 
 g
 
-ggsave("img/poblacionindigena_(0)total.png", width = 35, height = 20, units = "cm")
+ggsave("img/poblacionindigena_(0)total.png", width = 75, height = 45, units = "cm")
 
 ## p.16a
 
