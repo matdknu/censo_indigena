@@ -74,13 +74,13 @@ g <- ggplot() +
           size = 0.1) +
   #geom_sf_label(aes(label = comuna, geometry = geometry)) +
   scale_fill_gradientn(colours = rev(colors), name = "Porcentaje") +
-  labs(title = "Porcentaje de habitantes que se consideran como indígenas",
+  labs(title = "% de Habitantes Indígenas",
        subtitle = "Chile continental") +
-  theme_minimal(base_size = 13)
+  theme_minimal(base_size = 16)
 
 g
 
-ggsave("img/poblacionindigena_(0)total.png", width = 75, height = 45, units = "cm")
+ggsave("img/poblacionindigena_(0)total.png", width = 32, height = 25, units = "cm")
 
 ## p.16a
 
